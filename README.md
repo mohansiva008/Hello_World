@@ -28,5 +28,27 @@ app.post('/login', function(req, res) {
     res.send(req.body);
 });
 
+//////////////////////////////////////////////////////////////today change ////////////////////////////////////////////
+app.post('/login', function(req, res) { 
+    
+    var champ = req.body.username;
+    console.log(req.body.username); 
+    console.log(req.body.flag);
+    var str = req.body.flag;
+    
+    if (str == 'true') {
+        console.log('enter the true log');
+        //if the password and username are success let the stop the page here
+        res.send(req.body);
+    }
+    else{
+        //if the auth details are not correct please redirect to the sign up page
+        res.sendFile(__dirname+"/views/User_Sign_Up.html");
+    }
+});
+app.post('/signup', function(req, res) {
+    //Show the received data
+    req.send(res);
+});
 
 ///Install the .ejs and express.js and parseurl (For URL module to get the information from your URL);
